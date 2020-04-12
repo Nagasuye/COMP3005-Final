@@ -1,0 +1,18 @@
+{
+  "name": "look-inna-book",
+  "version": "1.0.0",
+  "description": "Version: program was tested using node.js version 6.12.3 on a 64-bit Windows 10 OS",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "k",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "pg": "^8.0.2",
+    "pug": "^2.0.4"
+  }
+}

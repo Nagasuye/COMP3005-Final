@@ -1,0 +1,26 @@
+html
+	head
+		title Look Inna Book
+		
+	body
+		include ../partials/header
+		h1 #{user.name}
+		br
+		h2 Orders
+		
+		if user.orders
+			each order in user.orders
+				|#{order.name}
+				br
+				|quantity: #{order.quantity}
+				br
+				|purchased: #{order.purchase_date}
+				br
+				|status: #{order.status}
+				br
+				br
+		
+		if user.logged
+			form(action='/logout' method='get')
+					input(type='submit' value='Log out')
+		include ../partials/footer

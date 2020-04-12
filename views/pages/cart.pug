@@ -1,0 +1,52 @@
+html
+	head
+		title Look Inna Book
+		
+	body()
+		h1 Your Cart
+		br
+
+		each item in cart
+			if item.quant > 0
+				|#{item.bookId}
+				br
+				|  Amount: #{item.quant}
+				br
+				|  Total: $#{item.bookTotal}
+				br
+				br
+			
+		h2 Total: $#{cart.total}
+		br
+		
+		if user.logged
+			form(action='/complete' method='post')
+				h3 Payment
+				label(for='name') Name 
+				input(type='text' id='name' name='name' style='margin-right: 20px' required)
+				br
+				br
+				label(for='bank') Bank no.
+				input(type='text' id='bank' name='bank' style='margin-right: 20px' required)
+				br
+				br
+				h3 Shipping
+				label(for='number') Street no.
+				input(type='text' id='number' name='number' style='margin-right: 20px' required)
+				br
+				br
+				label(for='stName') Street name
+				input(type='text' id='stName' name='stName' style='margin-right: 20px' required)
+				br
+				br
+				label(for='city') City
+				input(type='text' id='city' name='city' style='margin-right: 20px' required)
+				br
+				br
+				label(for='code') Postal code
+				input(type='text' id='code' name='code' style='margin-right: 20px' required)
+				br
+				br
+				input(type='submit' value='Complete Order')
+		
+		include ../partials/footer

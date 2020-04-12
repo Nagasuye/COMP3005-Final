@@ -1,0 +1,17 @@
+div#header(style='border-bottom: 1px solid gray;')
+	a(href='/')
+		button(type='button' style='display: inline-block;margin-right: 50px; margin-bottom: 5px') Home
+
+	if !user.logged
+		form(action='/login' method='post' style='display: inline-block;margin-right: 20px')
+			label(for='username') Username 
+			input(type='text' id='username' name='username' style='margin-right: 20px' required)
+			label(for='password') Password 
+			input(type='password' id='password' name='password' style='margin-right: 20px' required)
+			input(type='submit' value='Login')
+			
+		a(href='/register')
+			button(type='button' style='display: inline-block;margin-right: 20px') Register
+	else
+		a(href='/user')
+			button(type='button' style='display: inline-block;margin-right: 20px') Profile

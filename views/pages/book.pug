@@ -1,0 +1,23 @@
+html
+	head
+		title Look Inna Book
+		
+	body
+		include ../partials/header
+		h1 #{book.name}
+		h2 by: #{book.author_name}
+		
+		|publisher: #{book.publisher_name}
+		br
+		|made: #{book.year}
+		br
+		|ISBN: #{book.isbn}
+		br
+		|number of pages: #{book.pages}
+		br
+		|price: $#{book.price}
+		br
+		|genre: #{book.genre}
+		br
+		br
+		include ../partials/footer

@@ -1,0 +1,55 @@
+html
+	head
+		title Look Inna Book
+	
+	body
+		include ../partials/header
+		h1 Welcome to the Look Inna Book
+		
+		form(action='/searchBook' method='post' style='display: inline-block;margin-right: 20px')
+			input(type='text' placeholder='title' name='title' style='margin-right: 20px')
+			input(type='text' placeholder='author' name='author' style='margin-right: 20px')
+			input(type='text' placeholder='genre' name='genre' style='margin-right: 20px')
+			input(type='text' placeholder='year' name='year' style='margin-right: 20px')
+			input(type='submit' value='Search')
+			br
+		h2 Current Inventory
+		
+		if books
+			form(action='/checkout' method='post')
+				each book in books
+					-let url = '/book/' + book.name
+					-let bookID = book.name
+					-let bookInfo = book.name + '%' + book.price
+					a(href=url style='display: inline-block;margin-right: 100px') #{book.name}
+					label(for='amount') Amount: 
+							input(type='text' id=bookID name=bookInfo style='margin-right: 20px' size='2' value='0')
+					|  ($#{book.price})  
+					br
+					br
+				br
+				br
+				br
+				input(type='submit' value='Checkout')
+				br
+		if user.owner
+			form(action='/insertBook' method='post' style='display: inline-block;margin-right: 20px')
+				input(type='text' placeholder='title' name='title' style='margin-right: 20px')
+				input(type='text' placeholder='author' name='author' style='margin-right: 20px')
+				input(type='text' placeholder='author age' name='author_age' style='margin-right: 20px')
+				input(type='text' placeholder='publisher' name='publisher' style='margin-right: 20px')
+				input(type='text' placeholder='publisher st. #' name='st_num' style='margin-right: 20px')
+				input(type='text' placeholder='publisher st. name' name='st_name' style='margin-right: 20px')
+				input(type='text' placeholder='publisher city' name='city' style='margin-right: 20px')
+				input(type='text' placeholder='publisher postal code' name='post_code' style='margin-right: 20px')
+				input(type='text' placeholder='publisher email' name='email' style='margin-right: 20px')
+				input(type='text' placeholder='publisher phone #' name='phone_num' style='margin-right: 20px')
+				input(type='text' placeholder='year' name='year' style='margin-right: 20px')
+				input(type='text' placeholder='ISBN' name='ISBN' style='margin-right: 20px')
+				input(type='text' placeholder='pages' name='pages' style='margin-right: 20px')
+				input(type='text' placeholder='price' name='price' style='margin-right: 20px')
+				input(type='text' placeholder='genre' name='genre' style='margin-right: 20px')
+				input(type='submit' value='Add book')
+			br
+		
+		include ../partials/footer

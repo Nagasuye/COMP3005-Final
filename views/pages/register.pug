@@ -1,0 +1,46 @@
+html
+	head
+		title Look Inna Book
+		
+	body
+		include ../partials/header
+		h1 Welcome new shopper!
+		br
+		h2 Please fill in the following:
+		br
+		
+		form(action='/registered' method='post')
+			label(for='username') Username
+			input(type='text' id='username' name='username' style='margin-right: 20px' required)
+			br
+			br
+			label(for='name') Name 
+			input(type='text' id='name' name='name' style='margin-right: 20px' required)
+			br
+			br
+			label(for='age') Age
+			input(type='text' id='age' name='age' style='margin-right: 20px' required)
+			br
+			br
+			label(for='password') Password
+			input(type='text' id='password' name='password' style='margin-right: 20px' required)
+			br
+			br
+			label(for='stnum') Street number
+			input(type='text' id='stnum' name='stnum' style='margin-right: 20px' required)
+			br
+			br
+			label(for='stname') Street name
+			input(type='text' id='stname' name='stname' style='margin-right: 20px' required)
+			br
+			br
+			label(for='city') City
+			input(type='text' id='city' name='city' style='margin-right: 20px' required)
+			br
+			br
+			label(for='pc') Postal code
+			input(type='text' id='pc' name='pc' style='margin-right: 20px' required)
+			br
+			br
+			input(type='submit' value='Register')
+		include ../partials/footer
